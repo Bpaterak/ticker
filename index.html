@@ -11,7 +11,12 @@
     <title>CountUp.js</title>
 
     <!-- ../inorganik.github.io/assets/css/style.css?v=20140820 -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css?v=20141210">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="dist/jquery.bxslider.min.js"></script>-->
+    <script type="text/javascript" src="jquery.bxslider.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css">
 
     <script type="text/javascript" src="dist/countUp.min.js"></script>
     <script type="text/javascript">
@@ -28,32 +33,39 @@
 </head>
 
 <body>
-    <a class="forkMe" href="https://github.com/inorganik/CountUp.js"><img src="../assets/img/forkme_custom_indigo.png" alt="Fork me on GitHub"></a>
-    <div id="wrap">
+   <!-- <a class="forkMe" href="https://github.com/inorganik/CountUp.js"><img src="../assets/img/forkme_custom_indigo.png" alt="Fork me on GitHub"></a>-->
+    <div id="wrap" style="margin-top:10em;">
         <header>
             <div id="github"><a class="block" href="https://github.com/inorganik"></a></div>
-            <div class="leaderLine">////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div>
+            <div class="leaderLine"><!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--></div>
             <div id="logo"><a class="block" href="http://inorganik.github.io"></a></div>
         </header>
         <section>
-            <h1>CountUp.js &nbsp;<small id="version" class="lt-gray"></small></h1>
-            <p>CountUp.js is a dependency-free, lightweight JavaScript "class" that can be used to quickly create animations that display numerical data in a more interesting way.</p>
-            <h3 class="marginTop marginBottom"><a class="lime weight700" href="https://github.com/inorganik/CountUp.js">Download on Github</a></h3>
+            <h1><!--CountUp.js &nbsp;<small id="version" class="lt-gray"></small>--></h1>
+            <p><!--CountUp.js is a dependency-free, lightweight JavaScript "class" that can be used to quickly create animations that display numerical data in a more interesting way.--></p>
+            <!--<h3 class="marginTop marginBottom"><a class="lime weight700" href="https://github.com/inorganik/CountUp.js">Download on Github</a></h3>-->
         </section>
         <section>
-            <p style="position:absolute; top:5px; left:0;">Current stars:</p>
-            <h1 class="jumbo" id="myTargetElement">0</h1>
+            <p style="text-align:center; position:relative; top:5px; left:0; margin-bottom:.5em;">CircleBack Contacts</p>
+            <ul class="bxslider">
+                <li>
+            <h1 style="margin-left:0.5em; margin-top:0.9em;"class="jumbo" id="myTargetElement">0</h1>
+            </li>
+            <li>
+                <h1 class="jumbo" style="text-align:center;"><img src="assets/img/chart.png"/></h1>
+            </li>
+            </ul>
         </section>
-        <section>
+        <!--  <section>
             <form>
-                <h4 class="inlineLeft noMargin weight300">Params:</h4>
+               <!-- <h4 class="inlineLeft noMargin weight300">Params:</h4>
                 <div class="inlineLeft marginLeft marginRight">
-                    <input type="text" value="24.02" id="startVal" style="width:50px" onkeyup="updateCodeVisualizer()">
+                    <input value="116000" id="startVal" style="width:50px" onkeyup="updateCodeVisualizer()">
                     <label class="inlineLabel">Start</label>
                 </div>
                 <input type="button" class="inlineLeft marginRight" value="Swap" onClick="swapValues()" style="width:80px;">
                 <div class="inlineLeft marginRight">
-                    <input type="text" value="94.62" id="endVal" style="width:50px" onkeyup="updateCodeVisualizer()">
+                    <input type="text" value="1200000000" id="endVal" style="width:50px" onkeyup="updateCodeVisualizer()">
                     <label class="inlineLabel">End</label>
                 </div>
                 <div class="inlineLeft marginRight">
@@ -61,7 +73,7 @@
                     <label class="inlineLabel">Decimals</label>
                 </div>
                 <div class="inlineLeft marginRight">
-                    <input type="number" value="2.5" id="duration" step=".1" style="width:50px" onkeyup="updateCodeVisualizer()" onchange="updateCodeVisualizer()">
+                    <input type="number" value="999999" id="duration" step=".1" style="width:50px" onkeyup="updateCodeVisualizer()" onchange="updateCodeVisualizer()">
                     <label class="inlineLabel">Duration</label>
                 </div>
             </form>
@@ -121,9 +133,14 @@
                 </div>
             </div>
         </section>
-    </div>
+    </div>-->
 
 </body>
+<script>
+    $(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+    </script>
 <script type="text/javascript">
 
     // set CountUp options
@@ -143,10 +160,10 @@
     // create instance
     window.onload = function() {
         // setup CountUp object
-        demo = new CountUp('myTargetElement', 0, 94.62, 2, 2.5, options);
-        // you could do demo.start() right here but we are getting actual current star count from github api below
+        demo = new CountUp('myTargetElement', 1165460025, 12000000000, 0, 9999999, options);
+        demo.start() 
         // since it is an asynchronous call, we fire start() in the success fn of the XMLHttpRequest object
-        getStars.send();
+        // getStars.send();
 
         // display version (no hassling with markup!)
         document.getElementById('version').innerHTML = 'v'+demo.version();
